@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "io.github.preps.service"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "microservice",
+    "baseName": "prepaymentsservice",
+    "packageName": "io.github.preps.service",
+    "packageFolder": "io/github/preps/service",
+    "serverPort": "8489",
+    "authenticationType": "uaa",
+    "uaaBaseName": "prepaymentsuaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "N2U3ZjJhZmFkZmMzMDZkOTc5MzhiM2M3ODQ2N2E2YjEyOGZlZGNjNWQxZmVhZTc0MzZjOGJiZTNiNDk1OTYwYmJmYmQ5N2IzZGI3MWI0ZDE5MmQ2Nzg0MzRjZDBiZDc5NDQ2MmYxMjJlZDMzOGYzYTU1ZWEyYTBhMGRhZWRhMzM=",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "gha",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
