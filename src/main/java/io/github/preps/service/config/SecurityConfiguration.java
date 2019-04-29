@@ -32,21 +32,24 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf()
+        http.csrf()
             .disable()
             .headers()
             .frameOptions()
             .disable()
-        .and()
+            .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
+            .and()
             .authorizeRequests()
-            .antMatchers("/api/**").authenticated()
-            .antMatchers("/management/health").permitAll()
-            .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+            .antMatchers("/api/**")
+            .authenticated()
+            .antMatchers("/management/health")
+            .permitAll()
+            .antMatchers("/management/info")
+            .permitAll()
+            .antMatchers("/management/**")
+            .hasAuthority(AuthoritiesConstants.ADMIN);
     }
 
     @Bean
@@ -60,7 +63,7 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
     }
 
     @Bean
-	@Qualifier("loadBalancedRestTemplate")
+    @Qualifier("loadBalancedRestTemplate")
     public RestTemplate loadBalancedRestTemplate(RestTemplateCustomizer customizer) {
         RestTemplate restTemplate = new RestTemplate();
         customizer.customize(restTemplate);

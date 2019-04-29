@@ -31,10 +31,8 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         String headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 4);
-        String expectedData = "</api/_search/example?page=7&size=50>; rel=\"next\","
-                + "</api/_search/example?page=5&size=50>; rel=\"prev\","
-                + "</api/_search/example?page=7&size=50>; rel=\"last\","
-                + "</api/_search/example?page=0&size=50>; rel=\"first\"";
+        String expectedData = "</api/_search/example?page=7&size=50>; rel=\"next\"," + "</api/_search/example?page=5&size=50>; rel=\"prev\"," + "</api/_search/example?page=7&size=50>; rel=\"last\"," +
+            "</api/_search/example?page=0&size=50>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         List<String> xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);
@@ -53,8 +51,7 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         String headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 2);
-        String expectedData = "</api/_search/example?page=0&size=0&query=Test1%2C+test2>; rel=\"last\","
-                + "</api/_search/example?page=0&size=0&query=Test1%2C+test2>; rel=\"first\"";
+        String expectedData = "</api/_search/example?page=0&size=0&query=Test1%2C+test2>; rel=\"last\"," + "</api/_search/example?page=0&size=0&query=Test1%2C+test2>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         List<String> xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);
@@ -75,9 +72,8 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         String headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 3);
-        String expectedData = "</api/_search/example?page=1&size=50&query=Test1%2C+test2>; rel=\"next\","
-                + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\","
-                + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
+        String expectedData = "</api/_search/example?page=1&size=50&query=Test1%2C+test2>; rel=\"next\"," + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\"," +
+            "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         List<String> xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);
@@ -92,10 +88,8 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 4);
-        expectedData = "</api/_search/example?page=2&size=50&query=Test1%2C+test2>; rel=\"next\","
-                + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"prev\","
-                + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\","
-                + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
+        expectedData = "</api/_search/example?page=2&size=50&query=Test1%2C+test2>; rel=\"next\"," + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"prev\"," +
+            "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\"," + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);
@@ -109,10 +103,8 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 4);
-        expectedData = "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"next\","
-                + "</api/_search/example?page=5&size=50&query=Test1%2C+test2>; rel=\"prev\","
-                + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\","
-                + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
+        expectedData = "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"next\"," + "</api/_search/example?page=5&size=50&query=Test1%2C+test2>; rel=\"prev\"," +
+            "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\"," + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);
@@ -126,9 +118,8 @@ public class PaginationUtilUnitTest {
         assertTrue(strHeaders.size() == 1);
         headerData = strHeaders.get(0);
         assertTrue(headerData.split(",").length == 3);
-        expectedData = "</api/_search/example?page=6&size=50&query=Test1%2C+test2>; rel=\"prev\","
-                + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\","
-                + "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
+        expectedData = "</api/_search/example?page=6&size=50&query=Test1%2C+test2>; rel=\"prev\"," + "</api/_search/example?page=7&size=50&query=Test1%2C+test2>; rel=\"last\"," +
+            "</api/_search/example?page=0&size=50&query=Test1%2C+test2>; rel=\"first\"";
         assertEquals(expectedData, headerData);
     }
 
@@ -148,8 +139,7 @@ public class PaginationUtilUnitTest {
         assertTrue(linksData.length == 2);
         assertTrue(linksData[0].split(">;").length == 2);
         assertTrue(linksData[1].split(">;").length == 2);
-        String expectedData = "</api/_search/example?page=0&size=0&query=Test%3E%3Btest>; rel=\"last\","
-                + "</api/_search/example?page=0&size=0&query=Test%3E%3Btest>; rel=\"first\"";
+        String expectedData = "</api/_search/example?page=0&size=0&query=Test%3E%3Btest>; rel=\"last\"," + "</api/_search/example?page=0&size=0&query=Test%3E%3Btest>; rel=\"first\"";
         assertEquals(expectedData, headerData);
         List<String> xTotalCountHeaders = headers.get("X-Total-Count");
         assertTrue(xTotalCountHeaders.size() == 1);

@@ -12,19 +12,16 @@ import org.springframework.core.annotation.AliasFor;
 @FeignClient
 public @interface AuthorizedUserFeignClient {
 
-    @AliasFor(annotation = FeignClient.class, attribute = "name")
-    String name() default "";
+    @AliasFor(annotation = FeignClient.class, attribute = "name") String name() default "";
 
     /**
      * A custom <code>@Configuration</code> for the feign client.
-     *
-     * Can contain override <code>@Bean</code> definition for the pieces that make up the client, for instance {@link
-     * feign.codec.Decoder}, {@link feign.codec.Encoder}, {@link feign.Contract}.
+     * <p>
+     * Can contain override <code>@Bean</code> definition for the pieces that make up the client, for instance {@link feign.codec.Decoder}, {@link feign.codec.Encoder}, {@link feign.Contract}.
      *
      * @see FeignClientsConfiguration for the defaults
      */
-    @AliasFor(annotation = FeignClient.class, attribute = "configuration")
-    Class<?>[] configuration() default OAuth2UserClientFeignConfiguration.class;
+    @AliasFor(annotation = FeignClient.class, attribute = "configuration") Class<?>[] configuration() default OAuth2UserClientFeignConfiguration.class;
 
     /**
      * An absolute URL or resolvable hostname (the protocol is optional).
@@ -37,8 +34,7 @@ public @interface AuthorizedUserFeignClient {
     boolean decode404() default false;
 
     /**
-     * Fallback class for the specified Feign client interface. The fallback class must implement the interface
-     * annotated by this annotation and be a valid Spring bean.
+     * Fallback class for the specified Feign client interface. The fallback class must implement the interface annotated by this annotation and be a valid Spring bean.
      */
     Class<?> fallback() default void.class;
 

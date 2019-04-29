@@ -21,10 +21,7 @@ public class LogsResource {
     @GetMapping("/logs")
     public List<LoggerVM> getList() {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
-        return context.getLoggerList()
-            .stream()
-            .map(LoggerVM::new)
-            .collect(Collectors.toList());
+        return context.getLoggerList().stream().map(LoggerVM::new).collect(Collectors.toList());
     }
 
     @PutMapping("/logs")

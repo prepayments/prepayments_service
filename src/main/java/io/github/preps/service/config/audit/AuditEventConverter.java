@@ -38,8 +38,8 @@ public class AuditEventConverter {
         if (persistentAuditEvent == null) {
             return null;
         }
-        return new AuditEvent(persistentAuditEvent.getAuditEventDate(), persistentAuditEvent.getPrincipal(),
-            persistentAuditEvent.getAuditEventType(), convertDataToObjects(persistentAuditEvent.getData()));
+        return new AuditEvent(persistentAuditEvent.getAuditEventDate(), persistentAuditEvent.getPrincipal(), persistentAuditEvent.getAuditEventType(),
+                              convertDataToObjects(persistentAuditEvent.getData()));
     }
 
     /**
@@ -60,8 +60,7 @@ public class AuditEventConverter {
     }
 
     /**
-     * Internal conversion. This method will allow to save additional data.
-     * By default, it will save the object as string
+     * Internal conversion. This method will allow to save additional data. By default, it will save the object as string
      *
      * @param data the data to convert
      * @return a map of String, String

@@ -62,12 +62,9 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
          * See the JHipsterProperties class and your application-*.yml configuration files
          * for more information.
          */
-        if (jHipsterProperties.getHttp().getVersion().equals(JHipsterProperties.Http.Version.V_2_0) &&
-            server instanceof UndertowServletWebServerFactory) {
+        if (jHipsterProperties.getHttp().getVersion().equals(JHipsterProperties.Http.Version.V_2_0) && server instanceof UndertowServletWebServerFactory) {
 
-            ((UndertowServletWebServerFactory) server)
-                .addBuilderCustomizers(builder ->
-                    builder.setServerOption(UndertowOptions.ENABLE_HTTP2, true));
+            ((UndertowServletWebServerFactory) server).addBuilderCustomizers(builder -> builder.setServerOption(UndertowOptions.ENABLE_HTTP2, true));
         }
     }
 

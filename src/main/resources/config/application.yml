@@ -166,14 +166,14 @@ jhipster:
         from: prepaymentsservice@localhost
     swagger:
         default-include-pattern: /api/.*
-        title: prepaymentsservice API
-        description: prepaymentsservice API documentation
+        title: PREPAYMENT SERVICE API
+        description: API for prepayment and amortization models
         version: 0.0.1
         terms-of-service-url:
-        contact-name:
-        contact-url:
-        contact-email:
-        license:
+        contact-name: Edwin Njeru
+        contact-url: https://github.com/prepayments/prepayments_service
+        contact-email: mailnjeru@gmail.com
+        license: MIT
         license-url:
 
 # ===================================================================
