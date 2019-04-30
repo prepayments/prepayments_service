@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.preps.service</groupId>
-    <artifactId>prepaymentsservice</artifactId>
+    <artifactId>prepayments-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Prepaymentsservice</name>
@@ -37,7 +37,7 @@
         <profile.swagger />
         <profile.tls />
 
-        <docker.image.prefix>ghacupha</docker.image.prefix>
+        <docker.image.prefix>prepayments</docker.image.prefix>
 
         <!-- Dependency versions -->
         <jhipster-dependencies.version>2.1.1</jhipster-dependencies.version>
