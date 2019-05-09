@@ -111,6 +111,42 @@ spring:
         exclude: org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration,org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration
     application:
         name: prepaymentsservice
+    cloud:
+                 stream:
+                       kafka:
+                         binder:
+                           brokers: localhost:9092
+                       bindings:
+                         amortization-entry-in:
+                           destination: amortizationEntries
+                           contentType: application/json
+                         amortization-entry-out:
+                           destination: amortizationEntries
+                           contentType: application/json
+                         prepayment-entry-in:
+                            destination: prepaymentEntries
+                            contentType: application/json
+                         prepayment-entry-out:
+                            destination: prepaymentEntries
+                            contentType: application/json
+                         supplier-data-entry-in:
+                            destination: supplierDataEntries
+                            contentType: application/json
+                         supplier-data-entry-out:
+                            destination: supplierDataEntries
+                            contentType: application/json
+                         service-outlet-data-entry-in:
+                            destination: serviceOutletDataEntries
+                            contentType: application/json
+                         service-outlet-data-entry-out:
+                            destination: serviceOutletDataEntries
+                            contentType: application/json
+                         transaction-account-data-entry-in:
+                            destination: transactionAccountDataEntries
+                            contentType: application/json
+                         transaction-account-data-entry-out:
+                            destination: transactionAccountDataEntries
+                            contentType: application/json
     jpa:
         open-in-view: false
         properties:

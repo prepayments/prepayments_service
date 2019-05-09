@@ -1,7 +1,6 @@
 package io.github.preps.service.web.rest.errors;
 
 import io.github.preps.service.web.rest.util.HeaderUtil;
-
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

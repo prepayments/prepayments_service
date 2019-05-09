@@ -87,6 +87,26 @@ Then run:
 
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
 
+### Build An Image behind corporate proxy
+
+JIB is a great plugin but it won't work well to proxy configuration. The following commands will work without being hindered by JIB's lookup of the project's
+registry in docker hub.
+
+    mvn clean package -Pprod jib:exportDockerContext
+
+The run : 
+    
+    docker build -t prepayments/prepayments-service:0.0.1-SNAPSHOT target/jib-docker-context
+    
+You can the push to docker registry with
+
+     docker push prepayments/prepayments-service:0.0.1-SNAPSHOT
+     
+Or run it locally with:
+
+     docker run -p 8489:8489 -td prepayments/prepayments-service:0.0.1-SNAPSHOT
+
+
 ## Continuous Integration (optional)
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.

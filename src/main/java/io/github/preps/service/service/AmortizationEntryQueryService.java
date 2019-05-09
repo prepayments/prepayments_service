@@ -1,9 +1,14 @@
 package io.github.preps.service.service;
 
-import java.util.List;
-
-import javax.persistence.criteria.JoinType;
-
+import io.github.jhipster.service.QueryService;
+import io.github.preps.service.domain.AmortizationEntry;
+import io.github.preps.service.domain.AmortizationEntry_;
+import io.github.preps.service.domain.PrepaymentEntry_;
+import io.github.preps.service.repository.AmortizationEntryRepository;
+import io.github.preps.service.repository.search.AmortizationEntrySearchRepository;
+import io.github.preps.service.service.dto.AmortizationEntryCriteria;
+import io.github.preps.service.service.dto.AmortizationEntryDTO;
+import io.github.preps.service.service.mapper.AmortizationEntryMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -12,15 +17,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.github.jhipster.service.QueryService;
-
-import io.github.preps.service.domain.AmortizationEntry;
-import io.github.preps.service.domain.*; // for static metamodels
-import io.github.preps.service.repository.AmortizationEntryRepository;
-import io.github.preps.service.repository.search.AmortizationEntrySearchRepository;
-import io.github.preps.service.service.dto.AmortizationEntryCriteria;
-import io.github.preps.service.service.dto.AmortizationEntryDTO;
-import io.github.preps.service.service.mapper.AmortizationEntryMapper;
+import javax.persistence.criteria.JoinType;
+import java.util.List;
 
 /**
  * Service for executing complex queries for AmortizationEntry entities in the database. The main input is a {@link AmortizationEntryCriteria} which gets converted to {@link Specification}, in a way

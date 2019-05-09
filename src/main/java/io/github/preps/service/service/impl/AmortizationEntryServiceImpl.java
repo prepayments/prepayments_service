@@ -1,14 +1,13 @@
 package io.github.preps.service.service.impl;
 
-import io.github.preps.service.service.AmortizationEntryService;
 import io.github.preps.service.domain.AmortizationEntry;
 import io.github.preps.service.repository.AmortizationEntryRepository;
 import io.github.preps.service.repository.search.AmortizationEntrySearchRepository;
+import io.github.preps.service.service.AmortizationEntryService;
 import io.github.preps.service.service.dto.AmortizationEntryDTO;
 import io.github.preps.service.service.mapper.AmortizationEntryMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing AmortizationEntry.

@@ -1,14 +1,13 @@
 package io.github.preps.service.service.impl;
 
-import io.github.preps.service.service.PrepaymentEntryService;
 import io.github.preps.service.domain.PrepaymentEntry;
 import io.github.preps.service.repository.PrepaymentEntryRepository;
 import io.github.preps.service.repository.search.PrepaymentEntrySearchRepository;
+import io.github.preps.service.service.PrepaymentEntryService;
 import io.github.preps.service.service.dto.PrepaymentEntryDTO;
 import io.github.preps.service.service.mapper.PrepaymentEntryMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * Service Implementation for managing PrepaymentEntry.

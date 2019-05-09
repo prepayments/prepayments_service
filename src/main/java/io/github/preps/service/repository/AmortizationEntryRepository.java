@@ -1,7 +1,8 @@
 package io.github.preps.service.repository;
 
 import io.github.preps.service.domain.AmortizationEntry;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 

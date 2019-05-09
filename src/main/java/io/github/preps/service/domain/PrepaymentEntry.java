@@ -1,21 +1,25 @@
 package io.github.preps.service.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A PrepaymentEntry.
@@ -87,17 +91,21 @@ public class PrepaymentEntry implements Serializable {
         return accountNumber;
     }
 
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public PrepaymentEntry accountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
         return this;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
     public String getAccountName() {
         return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
     public PrepaymentEntry accountName(String accountName) {
@@ -105,12 +113,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
     public String getPrepaymentId() {
         return prepaymentId;
+    }
+
+    public void setPrepaymentId(String prepaymentId) {
+        this.prepaymentId = prepaymentId;
     }
 
     public PrepaymentEntry prepaymentId(String prepaymentId) {
@@ -118,12 +126,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setPrepaymentId(String prepaymentId) {
-        this.prepaymentId = prepaymentId;
-    }
-
     public LocalDate getPrepaymentDate() {
         return prepaymentDate;
+    }
+
+    public void setPrepaymentDate(LocalDate prepaymentDate) {
+        this.prepaymentDate = prepaymentDate;
     }
 
     public PrepaymentEntry prepaymentDate(LocalDate prepaymentDate) {
@@ -131,12 +139,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setPrepaymentDate(LocalDate prepaymentDate) {
-        this.prepaymentDate = prepaymentDate;
-    }
-
     public String getParticulars() {
         return particulars;
+    }
+
+    public void setParticulars(String particulars) {
+        this.particulars = particulars;
     }
 
     public PrepaymentEntry particulars(String particulars) {
@@ -144,12 +152,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setParticulars(String particulars) {
-        this.particulars = particulars;
-    }
-
     public String getServiceOutlet() {
         return serviceOutlet;
+    }
+
+    public void setServiceOutlet(String serviceOutlet) {
+        this.serviceOutlet = serviceOutlet;
     }
 
     public PrepaymentEntry serviceOutlet(String serviceOutlet) {
@@ -157,12 +165,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setServiceOutlet(String serviceOutlet) {
-        this.serviceOutlet = serviceOutlet;
-    }
-
     public BigDecimal getPrepaymentAmount() {
         return prepaymentAmount;
+    }
+
+    public void setPrepaymentAmount(BigDecimal prepaymentAmount) {
+        this.prepaymentAmount = prepaymentAmount;
     }
 
     public PrepaymentEntry prepaymentAmount(BigDecimal prepaymentAmount) {
@@ -170,12 +178,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setPrepaymentAmount(BigDecimal prepaymentAmount) {
-        this.prepaymentAmount = prepaymentAmount;
-    }
-
     public Integer getMonths() {
         return months;
+    }
+
+    public void setMonths(Integer months) {
+        this.months = months;
     }
 
     public PrepaymentEntry months(Integer months) {
@@ -183,12 +191,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setMonths(Integer months) {
-        this.months = months;
-    }
-
     public String getSupplierName() {
         return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
     public PrepaymentEntry supplierName(String supplierName) {
@@ -196,12 +204,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
-    }
-
     public String getInvoiceNumber() {
         return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
     }
 
     public PrepaymentEntry invoiceNumber(String invoiceNumber) {
@@ -209,12 +217,12 @@ public class PrepaymentEntry implements Serializable {
         return this;
     }
 
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
-    }
-
     public Set<AmortizationEntry> getAmortizationEntries() {
         return amortizationEntries;
+    }
+
+    public void setAmortizationEntries(Set<AmortizationEntry> amortizationEntries) {
+        this.amortizationEntries = amortizationEntries;
     }
 
     public PrepaymentEntry amortizationEntries(Set<AmortizationEntry> amortizationEntries) {
@@ -232,10 +240,6 @@ public class PrepaymentEntry implements Serializable {
         this.amortizationEntries.remove(amortizationEntry);
         amortizationEntry.setPrepaymentEntry(null);
         return this;
-    }
-
-    public void setAmortizationEntries(Set<AmortizationEntry> amortizationEntries) {
-        this.amortizationEntries = amortizationEntries;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

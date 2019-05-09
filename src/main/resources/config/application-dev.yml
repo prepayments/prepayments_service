@@ -41,15 +41,15 @@ spring:
     jackson:
         serialization:
             indent-output: true
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
+#    cloud:
+#        stream:
+#            kafka:
+#                binder:
+#                    brokers: localhost
+#                    zk-nodes: localhost
+#            bindings:
+#                output:
+#                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/prepayments_service?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC

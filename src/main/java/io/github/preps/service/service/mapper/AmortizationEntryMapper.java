@@ -1,9 +1,9 @@
 package io.github.preps.service.service.mapper;
 
-import io.github.preps.service.domain.*;
+import io.github.preps.service.domain.AmortizationEntry;
 import io.github.preps.service.service.dto.AmortizationEntryDTO;
-
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Mapper for the entity AmortizationEntry and its DTO AmortizationEntryDTO.
