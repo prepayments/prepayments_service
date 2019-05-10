@@ -28,7 +28,7 @@ public class AmortizationStreamsListener {
     }
 
     @StreamListener(AmortizationEntryStreams.INPUT)
-    public void handleGreetings(@Payload AmortizationEntryEVM amortizationEntryEVM) {
+    public void handleAmortizationEntryStreams(@Payload AmortizationEntryEVM amortizationEntryEVM) {
         log.info("Received amortizationEntry #: {}", amortizationEntryEVM.getRowIndex());
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
