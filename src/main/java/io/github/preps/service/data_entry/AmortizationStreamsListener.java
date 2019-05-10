@@ -1,7 +1,7 @@
 package io.github.preps.service.data_entry;
 
-import io.github.preps.service.domain.AmortizationEntry;
 import io.github.preps.service.service.AmortizationEntryService;
+import io.github.preps.service.service.PrepaymentEntryService;
 import io.github.preps.service.service.dto.AmortizationEntryDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -21,10 +21,13 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 public class AmortizationStreamsListener {
 
-    private AmortizationEntryService amortizationEntryService;
+    private final AmortizationEntryService amortizationEntryService;
+    private final IPrepaymentEntryIdService IPrepaymentEntryIdService;
 
-    public AmortizationStreamsListener(final AmortizationEntryService amortizationEntryService) {
+    public AmortizationStreamsListener(final AmortizationEntryService amortizationEntryService, final PrepaymentEntryService prepaymentEntryService,
+                                       final IPrepaymentEntryIdService IPrepaymentEntryIdService) {
         this.amortizationEntryService = amortizationEntryService;
+        this.IPrepaymentEntryIdService = IPrepaymentEntryIdService;
     }
 
     @StreamListener(AmortizationEntryStreams.INPUT)
@@ -42,7 +45,7 @@ public class AmortizationStreamsListener {
         dto.setAccountNumber(amortizationEntryEVM.getAccountNumber());
         dto.setAccountName(amortizationEntryEVM.getAccountName());
         // PREPAYMENT ID is assumed to be id # as stored in the db for prepayments
-        dto.setPrepaymentEntryId((long) amortizationEntryEVM.getRowIndex());
+        dto.setPrepaymentEntryId(IPrepaymentEntryIdService.findByIdAndDate(amortizationEntryEVM.getPrepaymentEntryId(), amortizationEntryEVM.getPrepaymentEntryDate()));
         AmortizationEntryDTO result = amortizationEntryService.save(dto);
 
         log.debug("Amortization entry item saved : #{}", result.getId());

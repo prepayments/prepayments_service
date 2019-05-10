@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 
 /**
  * Spring Data  repository for the PrepaymentEntry entity.
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PrepaymentEntryRepository extends JpaRepository<PrepaymentEntry, Long>, JpaSpecificationExecutor<PrepaymentEntry> {
 
+    PrepaymentEntry findFirstByPrepaymentIdAndPrepaymentDate(String prepaymentId, LocalDate prepaymentDate);
 }
