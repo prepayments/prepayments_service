@@ -2,9 +2,7 @@ package io.github.preps.service.data_entry;
 
 import io.github.preps.service.service.PrepaymentEntryService;
 import io.github.preps.service.service.dto.PrepaymentEntryDTO;
-import io.github.preps.service.service.impl.PrepaymentEntryServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -18,8 +16,11 @@ import java.time.format.DateTimeFormatter;
 public class PrepaymentsStreamsListener {
 
 
-    @Autowired
-    private PrepaymentEntryService prepaymentEntryService;
+    private final PrepaymentEntryService prepaymentEntryService;
+
+    public PrepaymentsStreamsListener(final PrepaymentEntryService prepaymentEntryService) {
+        this.prepaymentEntryService = prepaymentEntryService;
+    }
 
     @StreamListener(PrepaymentEntryStreams.INPUT)
     public void handlePrepaymentEntryStreamItem(@Payload PrepaymentEntryEVM streamItem) {
