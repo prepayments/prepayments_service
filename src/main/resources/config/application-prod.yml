@@ -44,8 +44,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/prepayments_service?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-        username: root
-        password: greywarren
+        username: ${MYSQL_DATABASE_DEV_USER}
+        password: ${MYSQL_DATABASE_PASSWORD}
         hikari:
             poolName: Hikari
             auto-commit: false
